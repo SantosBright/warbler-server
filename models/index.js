@@ -4,3 +4,5 @@ mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost/warbler', {
     keepAlive: true
 });
+
+module.exports.User = require('./user');
