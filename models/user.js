@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-    //   bcrypt   = require('bcrypt');
+const mongoose = require('mongoose'),
+      bcrypt   = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -18,7 +18,13 @@ const userSchema = new mongoose.Schema({
     },
     profileImgUrl: {
         type: String
-    }
+    },
+    messages: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Message'
+        }
+    ]
 });
 
 userSchema.pre('save', async function(next){
