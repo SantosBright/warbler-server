@@ -3,7 +3,9 @@ const db     = require('../models'),
 
 exports.signin = async function(req, res, next){
     try{
-        let user = await db.User.findOne({email: req.body.email});
+        let user = await db.User.findOne({
+            email: req.body.email
+        });
         let { id, username, profileImgUrl } = user;
         let isMatch = await user.comparePassword(req.body.password);
         if(isMatch){
@@ -21,7 +23,7 @@ exports.signin = async function(req, res, next){
             return next({
                 status: 400,
                 message: 'Incorrect Password'
-            })
+            });
         }
     } catch(err) {
         return next({
