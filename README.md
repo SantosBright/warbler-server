@@ -1,2 +1,2 @@
 # warbler-server
-Simple nodejs API from Colt Steele advance web developer bootcamp
+Simple nodejs API for warbler project
